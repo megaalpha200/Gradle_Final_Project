@@ -61,7 +61,8 @@ public class MainActivityFragment extends Fragment implements PostExecutionAsync
     }
 
     @Override
-    public void onPostExecution() {
+    public void onPostExecution(String result) {
         UIUtils.adjustVisabilityBasedOnLoadingStatus(tellJokeButton, loadingProgressBar, false);
+        startActivity(JokeActivity.getJokeActivityIntent(getContext(), result));
     }
 }

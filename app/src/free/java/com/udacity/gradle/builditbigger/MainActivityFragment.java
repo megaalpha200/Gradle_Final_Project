@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ProgressBar;
 
+import com.example.android.jokelibrary.JokeActivity;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.udacity.gradle.builditbigger.utils.EndpointsAsyncTask;
@@ -60,7 +61,8 @@ public class MainActivityFragment extends Fragment implements PostExecutionAsync
     }
 
     @Override
-    public void onPostExecution() {
+    public void onPostExecution(String result) {
         UIUtils.adjustVisabilityBasedOnLoadingStatus(tellJokeButton, loadingProgressBar, false);
+        startActivity(JokeActivity.getJokeActivityIntent(getContext(), result));
     }
 }

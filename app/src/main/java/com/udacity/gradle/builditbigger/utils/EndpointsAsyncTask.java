@@ -54,10 +54,6 @@ public class EndpointsAsyncTask extends AsyncTask<Pair<Context, PostExecutionAsy
 
     @Override
     protected void onPostExecute(String result) {
-        mPostExecutionListener.onPostExecution();
-
-        Intent intent = new Intent(context, JokeActivity.class);
-        intent.putExtra(context.getString(R.string.joke_extra), result);
-        context.startActivity(intent);
+        mPostExecutionListener.onPostExecution(result);
     }
 }

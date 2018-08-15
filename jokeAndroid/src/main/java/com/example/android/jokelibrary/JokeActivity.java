@@ -1,5 +1,7 @@
 package com.example.android.jokelibrary;
 
+import android.content.Context;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.TextView;
@@ -33,5 +35,11 @@ public class JokeActivity extends AppCompatActivity {
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
         outState.putString(getString(R.string.joke_extra), providedJoke);
+    }
+
+    public static Intent getJokeActivityIntent(Context context, String joke) {
+        Intent intent = new Intent(context, JokeActivity.class);
+        intent.putExtra(context.getString(R.string.joke_extra), joke);
+        return intent;
     }
 }
